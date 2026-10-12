@@ -10,9 +10,15 @@ transparente e organizada.
 > dinheiro real, não consulta o Gov.br e não gera contratos com validade
 > jurídica.
 
-## Versão atual — 1.2
+## Versão atual — 1.3
 
-- busca de imóveis com filtros por cidade, tipo e faixa de preço;
+- vitrine pública de imóveis para aluguel e venda;
+- acesso protegido com a conta do ChatGPT, inclusive quando ela usa o Google;
+- proposta de compra vinculada à identidade autenticada;
+- aquisição à vista, por financiamento ou carta de consórcio contemplada;
+- garantia financeira demonstrativa da proposta, sem cobrança real;
+- aceite da garantia documental do imóvel e checklist de análise;
+- painel individual das propostas de compra;
 - favoritos persistentes;
 - simulação e acompanhamento de caução;
 - painel de propostas com aceite ou recusa;
@@ -34,9 +40,10 @@ transparente e organizada.
 
 ## Arquitetura
 
-O navegador acessa a aplicação pública e recebe uma sessão acadêmica anônima
-por cookie `HttpOnly`. A rota `/api/demo-state` valida os dados antes de gravar
-favoritos, caução, propostas e histórico no banco D1.
+O navegador acessa a vitrine pública e recebe uma sessão acadêmica anônima por
+cookie `HttpOnly`. Favoritos, caução e histórico continuam disponíveis nessa
+sessão. Para enviar uma proposta de compra, a plataforma exige identidade
+autenticada e grava as condições e garantias no D1 com isolamento por usuário.
 
 Mais detalhes estão em [docs/ARQUITETURA.md](docs/ARQUITETURA.md).
 
@@ -78,13 +85,13 @@ worker/               Entrada do Cloudflare Worker
 ## Documentação acadêmica
 
 - [Relatório parcial do projeto](docs/Relatorio_Parcial_Chave_Direta%20(1).pdf)
-- [Arquitetura da versão 1.2](docs/ARQUITETURA.md)
+- [Arquitetura da versão 1.3](docs/ARQUITETURA.md)
 
 ## Próximas etapas
 
-- autenticação individual de proprietários e inquilinos;
 - cadastro e gerenciamento real de imóveis;
 - perfis e permissões por tipo de usuário;
+- envio protegido de documentos para análise;
 - notificações e agenda de visitas;
 - integrações financeiras e jurídicas somente após análise de segurança,
   privacidade e conformidade.

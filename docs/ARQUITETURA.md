@@ -1,67 +1,92 @@
-# Arquitetura — Chave Direta 1.2
+# Arquitetura — Chave Direta 1.3
 
 ## Objetivo da versão
 
-A versão 1.2 transforma o protótipo visual em uma demonstração com persistência
-real. As ações do painel continuam disponíveis após atualizar a página, sem
-simular operações financeiras ou jurídicas reais.
+A versão 1.3 amplia a demonstração de locação para uma jornada de aluguel e
+compra. A vitrine continua pública, enquanto propostas de compra exigem uma
+identidade protegida e ficam vinculadas ao usuário autenticado.
 
 ## Componentes
 
 | Componente | Responsabilidade |
 | --- | --- |
-| `app/page.tsx` | Interface, filtros, favoritos, propostas, caução e histórico |
-| `app/api/demo-state/route.ts` | Leitura, validação e gravação do estado da demonstração |
-| `db/schema.ts` | Definição das tabelas `demo_sessions` e `demo_states` |
-| `db/index.ts` | Conexão do Drizzle ORM com a vinculação D1 `DB` |
-| `drizzle/` | Migração versionada do banco de dados |
-| `worker/index.ts` | Entrada da aplicação no Cloudflare Worker |
+| `app/page.tsx` | Interface de aluguel, venda, garantias, consórcio e painéis |
+| `app/chatgpt-auth.ts` | Leitura segura da identidade fornecida pela hospedagem |
+| `app/api/account/route.ts` | Estado de autenticação e caminhos de entrada/saída |
+| `app/api/demo-state/route.ts` | Estado anônimo de favoritos, caução e histórico |
+| `app/api/purchase-offers/route.ts` | Validação e persistência das propostas de compra |
+| `app/sale-properties.ts` | Catálogo acadêmico dos imóveis à venda |
+| `db/schema.ts` | Sessões, perfis e propostas no banco D1 |
+| `drizzle/` | Migrações versionadas do banco |
 
-## Fluxo dos dados
+## Identidade e acesso
 
-1. Ao abrir o site, o navegador consulta `GET /api/demo-state`.
-2. A API recupera a sessão pelo cookie seguro ou cria um identificador anônimo.
-3. Se ainda não houver estado salvo, a API cria os dados demonstrativos iniciais.
-4. Cada ação relevante envia o estado validado por `POST /api/demo-state`.
-5. O banco D1 atualiza o registro associado àquela sessão.
-6. A interface informa se o conteúdo foi salvo ou se está operando temporariamente.
+O site permanece público para navegação e pesquisa. A entrada usa a identidade
+protegida disponibilizada pela própria plataforma de hospedagem. Uma pessoa que
+criou ou acessa sua conta do ChatGPT com Google utiliza essa mesma conta, sem a
+aplicação armazenar senha ou implementar um OAuth paralelo.
+
+As propostas de compra exigem autenticação. O servidor utiliza o identificador
+da conta recebido em cabeçalho protegido e nunca aceita um identificador enviado
+pelo navegador.
+
+## Fluxo de compra
+
+1. A pessoa seleciona um imóvel da vitrine pública.
+2. Se necessário, entra com a conta do ChatGPT.
+3. Informa valor e uma das formas de aquisição: à vista, financiamento ou carta
+   de consórcio contemplada.
+4. Registra uma garantia financeira demonstrativa, sem cobrança real.
+5. Aceita que a proposta depende da garantia documental do imóvel: matrícula,
+   certidões, ônus, IPTU e titularidade.
+6. A API valida os limites, vincula a proposta à identidade e grava no D1.
+7. O painel lista apenas as propostas do usuário autenticado.
 
 ## Modelo de dados
 
-### `demo_sessions`
+### `demo_sessions` e `demo_states`
 
-- `id`: identificador UUID da sessão;
-- `created_at`: data de criação;
-- `updated_at`: última atividade.
+Mantêm o fluxo acadêmico anônimo da V1.2 para favoritos, reserva caução,
+propostas de aluguel e histórico.
 
-### `demo_states`
+### `user_profiles`
 
-- `session_id`: chave primária e referência da sessão;
-- `deposit`: valor demonstrativo da caução;
-- `liked_json`: identificadores dos imóveis favoritos;
-- `proposal_status_json`: estado das propostas;
-- `history_json`: histórico acadêmico das ações;
-- `updated_at`: última gravação.
+- `id`: identificador protegido da plataforma;
+- `email` e `full_name`: informações básicas da conta;
+- `created_at` e `updated_at`: rastreabilidade.
+
+### `purchase_offers`
+
+- referência ao usuário e ao imóvel;
+- valor anunciado e valor ofertado;
+- forma de aquisição;
+- valor da garantia financeira demonstrativa;
+- dados da carta quando a opção for consórcio;
+- aceite da garantia documental;
+- status e datas de criação/atualização.
 
 ## Segurança e limites
 
-- cookie `HttpOnly`, `SameSite=Lax` e `Secure` em produção;
-- validação de tipos, tamanhos e valores no servidor;
-- sessão confirmada no banco antes de qualquer gravação;
-- limites para quantidade de favoritos, propostas e eventos;
-- nenhuma senha ou dado bancário é armazenado;
-- nenhuma transferência de dinheiro é realizada.
+- navegação pública e mutações de compra autenticadas;
+- identidade obtida somente de cabeçalhos confiáveis da hospedagem;
+- validação server-side de método, valores, imóvel e campos obrigatórios;
+- consultas filtradas pelo identificador do usuário;
+- cookie anônimo `HttpOnly`, `SameSite=Lax` e `Secure` em produção;
+- nenhuma senha, dado bancário ou documento é armazenado;
+- nenhuma transferência de dinheiro, aprovação de crédito ou verificação
+  cartorial é realizada.
 
 ## Limitações conhecidas
 
-- a identidade é vinculada ao navegador, não a uma conta com e-mail e senha;
-- limpar os cookies inicia uma nova sessão demonstrativa;
-- os imóveis exibidos são exemplos estáticos;
-- não há integração real com Gov.br, Pix, boleto, assinatura ou seguradoras.
+- imóveis e valores são exemplos acadêmicos;
+- garantia financeira é apenas um registro demonstrativo;
+- garantia documental é um compromisso/checklist, não uma análise jurídica;
+- financiamento e consórcio não consultam bancos ou administradoras;
+- não há upload protegido de documentos nesta versão.
 
 ## Evolução recomendada
 
-Para uma futura versão de produção, o projeto deverá adotar autenticação,
-controle de acesso por função, cadastro normalizado de pessoas e imóveis,
-auditoria, política de privacidade, tratamento adequado à LGPD e integrações
-financeiras homologadas.
+Uma versão de produção deve incluir autorização por função, cadastro real de
+imóveis, auditoria, política de privacidade, tratamento adequado à LGPD, upload
+protegido, antifraude e integrações homologadas com bancos, administradoras,
+cartórios e assinatura eletrônica.
