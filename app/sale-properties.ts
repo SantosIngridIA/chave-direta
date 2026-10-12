@@ -1,4 +1,15 @@
-export const saleProperties = [
+export type SaleProperty = {
+  id: string;
+  title: string;
+  place: string;
+  price: number;
+  rooms: number;
+  area: number;
+  image: string;
+  tag: string;
+};
+
+export const saleProperties: readonly SaleProperty[] = [
   {
     id: "sale-1",
     title: "Apartamento com varanda",
@@ -29,6 +40,4 @@ export const saleProperties = [
     image: "/property-3.png",
     tag: "Financiável",
   },
-] as const;
-
-export type SaleProperty = (typeof saleProperties)[number];
+];

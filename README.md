@@ -10,9 +10,14 @@ transparente e organizada.
 > dinheiro real, não consulta o Gov.br e não gera contratos com validade
 > jurídica.
 
-## Versão atual — 1.3
+## Versão atual — 1.4
 
 - vitrine pública de imóveis para aluguel e venda;
+- página completa para cadastro de imóveis de todos os tipos;
+- anúncios reais vinculados à conta do proprietário;
+- foto de capa armazenada no Cloudflare R2;
+- endereço protegido, com exibição pública apenas de bairro e cidade;
+- painel para pausar e reativar anúncios;
 - acesso protegido com a conta do ChatGPT, inclusive quando ela usa o Google;
 - proposta de compra vinculada à identidade autenticada;
 - aquisição à vista, por financiamento ou carta de consórcio contemplada;
@@ -85,12 +90,12 @@ worker/               Entrada do Cloudflare Worker
 ## Documentação acadêmica
 
 - [Relatório parcial do projeto](docs/Relatorio_Parcial_Chave_Direta%20(1).pdf)
-- [Arquitetura da versão 1.3](docs/ARQUITETURA.md)
+- [Arquitetura da versão 1.4](docs/ARQUITETURA.md)
 
 ## Próximas etapas
 
-- cadastro e gerenciamento real de imóveis;
-- perfis e permissões por tipo de usuário;
+- edição de anúncios já publicados;
+- perfis e permissões adicionais por tipo de usuário;
 - envio protegido de documentos para análise;
 - notificações e agenda de visitas;
 - integrações financeiras e jurídicas somente após análise de segurança,

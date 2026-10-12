@@ -1,6 +1,6 @@
 import { desc, eq, sql } from "drizzle-orm";
 import { getDb } from "../../../db";
-import { purchaseOffers, userProfiles } from "../../../db/schema";
+import { propertyListings, purchaseOffers, userProfiles } from "../../../db/schema";
 import { getChatGPTUser } from "../../chatgpt-auth";
 import { saleProperties } from "../../sale-properties";
 
@@ -49,10 +49,12 @@ export async function POST(request: Request) {
   const input = parseInput(await request.json());
   if (!input) return Response.json({ error: "Revise os valores, as garantias e a forma de aquisição." }, { status: 400 });
 
-  const property = saleProperties.find((item) => item.id === input.propertyId);
-  if (!property) return Response.json({ error: "Imóvel não encontrado." }, { status: 404 });
-
   const db = getDb();
+  const staticProperty = saleProperties.find((item) => item.id === input.propertyId);
+  const [registeredProperty] = staticProperty ? [] : await db.select().from(propertyListings).where(eq(propertyListings.id, input.propertyId)).limit(1);
+  const property = staticProperty ? { id: staticProperty.id, title: staticProperty.title, price: staticProperty.price } : registeredProperty && registeredProperty.status === "ativo" && registeredProperty.salePrice && registeredProperty.dealType !== "aluguel" ? { id: registeredProperty.id, title: registeredProperty.title, price: registeredProperty.salePrice } : null;
+  if (!property) return Response.json({ error: "Imóvel não encontrado ou indisponível para venda." }, { status: 404 });
+
   await db.insert(userProfiles).values({
     id: user.id,
     email: user.email,

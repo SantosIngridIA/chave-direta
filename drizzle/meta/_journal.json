@@ -15,6 +15,13 @@
       "when": 1791814907137,
       "tag": "0001_breezy_stone_men",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1791820431195,
+      "tag": "0002_friendly_talkback",
+      "breakpoints": true
     }
   ]
 }

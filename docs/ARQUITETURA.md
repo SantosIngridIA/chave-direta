@@ -1,10 +1,10 @@
-# Arquitetura — Chave Direta 1.3
+# Arquitetura — Chave Direta 1.4
 
 ## Objetivo da versão
 
-A versão 1.3 amplia a demonstração de locação para uma jornada de aluguel e
-compra. A vitrine continua pública, enquanto propostas de compra exigem uma
-identidade protegida e ficam vinculadas ao usuário autenticado.
+A versão 1.4 mantém a jornada de aluguel e compra e acrescenta o cadastro real
+de imóveis. Proprietários autenticados podem cadastrar, publicar, pausar e
+reativar anúncios, com foto de capa armazenada separadamente.
 
 ## Componentes
 
@@ -15,9 +15,24 @@ identidade protegida e ficam vinculadas ao usuário autenticado.
 | `app/api/account/route.ts` | Estado de autenticação e caminhos de entrada/saída |
 | `app/api/demo-state/route.ts` | Estado anônimo de favoritos, caução e histórico |
 | `app/api/purchase-offers/route.ts` | Validação e persistência das propostas de compra |
+| `app/api/properties/route.ts` | Cadastro, listagem pública e gestão dos anúncios |
+| `app/api/property-images/` | Upload autenticado e entrega pública das fotos |
 | `app/sale-properties.ts` | Catálogo acadêmico dos imóveis à venda |
 | `db/schema.ts` | Sessões, perfis e propostas no banco D1 |
 | `drizzle/` | Migrações versionadas do banco |
+
+## Fluxo de cadastro
+
+1. O proprietário entra com a conta protegida.
+2. Seleciona aluguel, venda ou as duas modalidades.
+3. Escolhe entre apartamento, casa, studio, kitnet, sobrado, terreno, imóvel
+   comercial, chácara, sítio ou galpão.
+4. Preenche apresentação, endereço, características, valores e condições.
+5. A foto é validada e armazenada no R2; formatos aceitos: JPG, PNG e WebP de
+   até 5 MB.
+6. A API valida todos os campos e grava o anúncio no D1.
+7. A vitrine pública exibe apenas bairro e cidade, sem número e endereço exato.
+8. O painel do proprietário permite pausar ou reativar o anúncio.
 
 ## Identidade e acesso
 
@@ -65,6 +80,16 @@ propostas de aluguel e histórico.
 - aceite da garantia documental;
 - status e datas de criação/atualização.
 
+### `property_listings`
+
+- proprietário e modalidade de negociação;
+- tipo, título e descrição;
+- endereço completo protegido;
+- preços, taxas e características;
+- formas de aquisição e garantias aceitas;
+- chave da foto no R2;
+- status de publicação e datas de auditoria.
+
 ## Segurança e limites
 
 - navegação pública e mutações de compra autenticadas;
@@ -73,6 +98,8 @@ propostas de aluguel e histórico.
 - consultas filtradas pelo identificador do usuário;
 - cookie anônimo `HttpOnly`, `SameSite=Lax` e `Secure` em produção;
 - nenhuma senha, dado bancário ou documento é armazenado;
+- fotos limitadas por tamanho e tipo de conteúdo;
+- endereço exato omitido das respostas públicas;
 - nenhuma transferência de dinheiro, aprovação de crédito ou verificação
   cartorial é realizada.
 

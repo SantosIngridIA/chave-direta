@@ -30,6 +30,38 @@ export const userProfiles = sqliteTable("user_profiles", {
   updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
 });
 
+export const propertyListings = sqliteTable("property_listings", {
+  id: text("id").primaryKey(),
+  ownerId: text("owner_id").notNull().references(() => userProfiles.id, { onDelete: "cascade" }),
+  dealType: text("deal_type").notNull(),
+  propertyType: text("property_type").notNull(),
+  title: text("title").notNull(),
+  description: text("description").notNull(),
+  cep: text("cep").notNull(),
+  street: text("street").notNull(),
+  addressNumber: text("address_number").notNull(),
+  complement: text("complement"),
+  neighborhood: text("neighborhood").notNull(),
+  city: text("city").notNull(),
+  state: text("state").notNull(),
+  salePrice: integer("sale_price"),
+  rentPrice: integer("rent_price"),
+  condominiumFee: integer("condominium_fee").notNull().default(0),
+  monthlyIptu: integer("monthly_iptu").notNull().default(0),
+  bedrooms: integer("bedrooms").notNull().default(0),
+  bathrooms: integer("bathrooms").notNull().default(0),
+  parkingSpaces: integer("parking_spaces").notNull().default(0),
+  areaM2: integer("area_m2").notNull(),
+  furnished: integer("furnished", { mode: "boolean" }).notNull().default(false),
+  petFriendly: integer("pet_friendly", { mode: "boolean" }).notNull().default(false),
+  acquisitionMethodsJson: text("acquisition_methods_json").notNull().default("[]"),
+  rentalGuaranteesJson: text("rental_guarantees_json").notNull().default("[]"),
+  coverImageKey: text("cover_image_key"),
+  status: text("status").notNull().default("ativo"),
+  createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+  updatedAt: text("updated_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+});
+
 export const purchaseOffers = sqliteTable("purchase_offers", {
   id: text("id").primaryKey(),
   userId: text("user_id")

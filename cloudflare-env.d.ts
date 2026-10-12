@@ -1,9 +1,23 @@
 declare module "cloudflare:workers" {
   export const env: {
     DB: D1Database;
+    BUCKET: R2Bucket;
     ASSETS: Fetcher;
     IMAGES: unknown;
   };
+}
+
+interface R2Bucket {
+  put(key: string, value: ArrayBuffer, options?: { httpMetadata?: { contentType?: string }; customMetadata?: Record<string, string> }): Promise<unknown>;
+  get(key: string): Promise<R2ObjectBody | null>;
+  delete(key: string): Promise<void>;
+}
+
+interface R2ObjectBody {
+  body: ReadableStream<Uint8Array>;
+  httpMetadata?: { contentType?: string };
+  size: number;
+  etag: string;
 }
 
 interface Fetcher {
