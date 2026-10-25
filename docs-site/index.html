@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#123b4a">
+  <meta name="description" content="Chave Direta — plataforma acadêmica para aluguel e compra de imóveis com uma jornada transparente, segura e organizada.">
+  <meta property="og:title" content="Chave Direta — Encontre. Negocie. Conquiste.">
+  <meta property="og:description" content="Conheça o projeto acadêmico Chave Direta e acesse o sistema web completo.">
+  <title>Chave Direta — Apresentação do projeto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--petrol:#123b4a;--teal:#18b6a4;--lime:#c9f05d;--coral:#ff7657;--sand:#f7f4ec;--ink:#18242a;--muted:#68777c;--line:#dfe5e2;--white:#fff;--shadow:0 22px 58px rgba(18,59,74,.14)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--sand);color:var(--ink);font-family:Manrope,Arial,sans-serif}a{color:inherit}button,a{transition:.2s}
+    .wrap{width:min(1180px,calc(100% - 40px));margin:auto}.top{position:sticky;top:0;z-index:50;background:rgba(247,244,236,.93);backdrop-filter:blur(16px);border-bottom:1px solid rgba(18,59,74,.09)}.top .wrap{height:76px;display:flex;align-items:center;justify-content:space-between;gap:22px}.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--petrol);font-weight:800;font-size:20px}.mark{width:43px;height:38px;border-radius:13px;background:linear-gradient(135deg,var(--petrol) 0 50%,var(--teal) 50%);display:grid;place-items:center;color:white;font-size:14px;box-shadow:0 8px 20px rgba(18,59,74,.18)}.brand strong{color:var(--teal)}nav{display:flex;gap:24px;align-items:center}nav a{text-decoration:none;color:#53656b;font-size:12px;font-weight:700}nav a:hover{color:var(--teal)}.top-actions{display:flex;gap:9px}.button{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:11px;padding:13px 18px;font-size:11px;font-weight:800}.primary{background:var(--teal);color:white;box-shadow:0 9px 24px rgba(24,182,164,.24)}.primary:hover{background:#109c8e;transform:translateY(-1px)}.secondary{border:1px solid rgba(18,59,74,.2);color:var(--petrol);background:white}.secondary:hover{border-color:var(--teal);color:var(--teal)}
+    .hero{position:relative;overflow:hidden;padding:92px 0 82px;background:linear-gradient(115deg,var(--sand) 0 58%,#dbf0ea 58%)}.hero:after{content:"";position:absolute;width:290px;height:290px;border:68px solid rgba(24,182,164,.1);border-radius:50%;right:-100px;top:-110px}.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:64px}.eyebrow,.section-head>span,.feature>span,.architecture>span{color:var(--teal);font-size:10px;font-weight:800;letter-spacing:.18em}.hero h1{font-size:68px;line-height:1.02;letter-spacing:-.055em;color:var(--petrol);margin:18px 0 22px}.hero h1 span{color:var(--teal)}.hero p{font-size:17px;line-height:1.75;color:#53656b;max-width:620px}.hero-buttons{display:flex;gap:11px;margin:31px 0}.proof{display:flex;gap:18px;flex-wrap:wrap;color:#52666b;font-size:10px;font-weight:700}.proof span:before{content:"✓";color:var(--teal);margin-right:6px}.visual{position:relative;min-height:470px}.door{width:270px;height:385px;position:absolute;right:52px;top:24px;border-radius:140px 140px 24px 24px;background:var(--petrol);box-shadow:28px 28px 0 rgba(24,182,164,.18)}.door:after{content:"";position:absolute;width:145px;height:300px;right:0;bottom:0;border-radius:80px 80px 15px 15px;background:var(--teal);clip-path:polygon(0 0,100% 9%,100% 100%,0 100%)}.door i{position:absolute;z-index:2;right:53px;top:190px;width:13px;height:13px;border-radius:50%;background:var(--lime)}.float{position:absolute;background:rgba(255,255,255,.97);border:1px solid rgba(18,59,74,.08);border-radius:15px;box-shadow:var(--shadow);padding:17px 19px}.float small{display:block;color:var(--teal);font-size:8px;font-weight:800;letter-spacing:.12em}.float strong{display:block;color:var(--petrol);margin:6px 0;font-size:15px}.float span{font-size:9px;color:var(--muted)}.float.one{left:0;top:95px}.float.two{right:0;bottom:46px}.status{position:absolute;right:16px;top:12px;background:var(--lime);color:var(--petrol);border-radius:20px;padding:8px 11px;font-size:8px;font-weight:800}
+    .stats{margin-top:-30px;position:relative;z-index:5}.stats-grid{background:white;border:1px solid var(--line);border-radius:19px;box-shadow:var(--shadow);display:grid;grid-template-columns:repeat(4,1fr);padding:25px}.stats-grid div{padding:5px 23px;border-right:1px solid var(--line)}.stats-grid div:last-child{border:0}.stats-grid strong{display:block;color:var(--petrol);font-size:25px}.stats-grid span{font-size:9px;color:var(--muted)}
+    section{padding:88px 0}.section-head{max-width:720px;margin:0 auto 45px;text-align:center}.section-head h2{font-size:40px;line-height:1.18;color:var(--petrol);letter-spacing:-.04em;margin:12px 0}.section-head p{color:var(--muted);font-size:13px;line-height:1.7}.problem{background:white}.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.problem-card{border-radius:20px;padding:31px;border:1px solid var(--line)}.problem-card.before{background:#fff3ef;border-color:#ffd8cd}.problem-card.after{background:#eaf8f4;border-color:#ccebe3}.problem-card>span{font-size:9px;font-weight:800;letter-spacing:.13em;color:var(--coral)}.problem-card.after>span{color:var(--teal)}.problem-card h3{color:var(--petrol);font-size:25px;margin:10px 0}.problem-card ul{list-style:none;padding:0;margin:20px 0 0}.problem-card li{padding:10px 0;border-bottom:1px solid rgba(18,59,74,.09);color:#59696e;font-size:11px}.problem-card li:last-child{border:0}.problem-card li:before{content:"—";margin-right:9px;color:var(--coral)}.problem-card.after li:before{content:"✓";color:var(--teal)}
+    .features{background:var(--sand)}.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.feature{background:white;border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 10px 28px rgba(18,59,74,.05)}.feature .icon{width:45px;height:45px;border-radius:13px;background:#e6f7f3;color:var(--teal);display:grid;place-items:center;font-weight:800;font-size:18px;margin-bottom:19px}.feature h3{color:var(--petrol);font-size:18px;margin:8px 0}.feature p{color:var(--muted);font-size:10px;line-height:1.7;margin:0}.feature:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+    .journey{background:var(--petrol);color:white}.journey .section-head h2{color:white}.journey .section-head p{color:#c5d0d2}.steps{display:grid;grid-template-columns:repeat(5,1fr);position:relative}.steps:before{content:"";height:2px;background:rgba(255,255,255,.15);position:absolute;left:8%;right:8%;top:23px}.step{position:relative;text-align:center;padding:0 10px}.step b{position:relative;z-index:2;margin:auto;width:47px;height:47px;border-radius:50%;display:grid;place-items:center;background:var(--teal);color:white;border:7px solid var(--petrol);font-size:11px}.step h3{font-size:15px;margin:14px 0 6px}.step p{font-size:9px;line-height:1.55;color:#bdc9cb}
+    .showcase{background:white}.showcase-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}.photo-stack{position:relative;min-height:480px}.photo{position:absolute;width:72%;border-radius:20px;box-shadow:var(--shadow);display:block;aspect-ratio:4/3;object-fit:cover}.photo.a{left:0;top:0}.photo.b{right:0;bottom:0;border:8px solid white}.photo-label{position:absolute;z-index:3;left:24px;bottom:45px;background:var(--lime);color:var(--petrol);border-radius:13px;padding:12px 15px;font-size:9px;font-weight:800}.showcase-copy h2{color:var(--petrol);font-size:39px;letter-spacing:-.04em;line-height:1.18;margin:12px 0}.showcase-copy>p{color:var(--muted);font-size:12px;line-height:1.75}.checklist{display:grid;gap:11px;margin:23px 0}.checklist div{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:center}.checklist i{width:29px;height:29px;border-radius:9px;background:#e6f7f3;color:var(--teal);display:grid;place-items:center;font-style:normal;font-size:11px;font-weight:800}.checklist strong{font-size:11px;color:var(--petrol)}.checklist span{display:block;font-size:8px;color:var(--muted);margin-top:2px}
+    .architecture{background:#eaf4f1}.arch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:34px}.arch-grid article{background:white;border:1px solid #d3e5e0;border-radius:16px;padding:23px;position:relative}.arch-grid article:not(:last-child):after{content:"→";position:absolute;right:-12px;top:50%;z-index:2;width:24px;height:24px;border-radius:50%;background:var(--teal);color:white;display:grid;place-items:center;font-size:11px}.arch-grid small{color:var(--teal);font-size:8px;font-weight:800}.arch-grid h3{color:var(--petrol);font-size:16px;margin:8px 0}.arch-grid p{color:var(--muted);font-size:9px;line-height:1.55}.security{margin-top:18px;background:var(--petrol);color:white;border-radius:18px;padding:28px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center}.security i{width:52px;height:52px;border-radius:15px;background:var(--lime);color:var(--petrol);display:grid;place-items:center;font-style:normal;font-size:22px}.security h3{margin:0 0 6px;font-size:18px}.security p{margin:0;color:#cad4d5;font-size:10px;line-height:1.6}
+    .roadmap{background:white}.roadmap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.roadmap-item{display:grid;grid-template-columns:45px 1fr auto;gap:13px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:16px}.roadmap-item b{width:39px;height:39px;border-radius:12px;background:#eef7f4;color:var(--teal);display:grid;place-items:center}.roadmap-item strong{display:block;color:var(--petrol);font-size:12px}.roadmap-item span{font-size:8px;color:var(--muted)}.roadmap-item em{font-style:normal;border-radius:14px;padding:6px 8px;font-size:7px;font-weight:800;background:#eef1ef;color:#64716f}.roadmap-item.done em{background:#e8f7d8;color:#557b18}.roadmap-item.now em{background:#fff0d2;color:#84621c}
+    .cta{padding:85px 0;background:linear-gradient(120deg,var(--teal),#118f84);color:white}.cta-box{text-align:center}.cta h2{font-size:43px;letter-spacing:-.04em;margin:10px 0}.cta p{max-width:650px;margin:0 auto 27px;color:#dcf7f2;font-size:12px;line-height:1.7}.cta .button{background:white;color:var(--petrol);margin:5px}.cta .button.secondary{background:transparent;color:white;border-color:rgba(255,255,255,.4)}
+    footer{background:#0d2934;color:white;padding:34px 0}.footer-grid{display:flex;align-items:center;justify-content:space-between;gap:24px}.footer-grid p{color:#9fb0b4;font-size:9px;max-width:560px}.footer-links{display:flex;gap:16px}.footer-links a{font-size:9px;color:#d1dcde}
+    @media(max-width:950px){nav{display:none}.hero-grid,.showcase-grid{grid-template-columns:1fr}.visual{min-height:410px;max-width:520px;margin:auto;width:100%}.feature-grid{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(3,1fr);gap:28px}.steps:before{display:none}.arch-grid{grid-template-columns:1fr 1fr}.arch-grid article:after{display:none}.photo-stack{min-height:430px}}
+    @media(max-width:650px){.wrap{width:min(100% - 30px,1180px)}.top .wrap{height:68px}.brand{font-size:16px}.top-actions .secondary{display:none}.hero{padding:64px 0 70px;background:linear-gradient(155deg,var(--sand) 0 68%,#dbf0ea 68%)}.hero h1{font-size:45px}.hero p{font-size:14px}.hero-buttons{flex-direction:column}.proof{flex-direction:column;gap:7px}.visual{min-height:360px}.door{width:210px;height:310px;right:30px}.float.two{right:0}.stats-grid{grid-template-columns:1fr 1fr;gap:13px}.stats-grid div{border:0;padding:7px}.section-head h2,.showcase-copy h2{font-size:31px}section{padding:65px 0}.problem-grid,.feature-grid,.roadmap-grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.photo-stack{min-height:330px}.photo{width:78%}.arch-grid{grid-template-columns:1fr}.security{grid-template-columns:1fr}.cta h2{font-size:33px}.footer-grid{align-items:flex-start;flex-direction:column}}
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="#inicio" aria-label="Chave Direta"><span class="mark">CD</span><span>Chave <strong>Direta</strong></span></a>
+      <nav aria-label="Navegação da apresentação"><a href="#solucao">A solução</a><a href="#recursos">Recursos</a><a href="#arquitetura">Arquitetura</a><a href="#roadmap">Roadmap</a></nav>
+      <div class="top-actions"><a class="button secondary" href="https://github.com/SantosIngridIA/chave-direta">Código no GitHub</a><a class="button primary" href="https://chave-direta.diasingrid56.chatgpt.site">Acessar sistema →</a></div>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">PROJETO INTEGRADOR • UNIVESP</span>
+          <h1>Encontre. Negocie.<br>Conquiste. <span>É seu.</span></h1>
+          <p>Uma plataforma acadêmica que conecta quem busca e quem anuncia imóveis, reunindo aluguel, compra, propostas, garantias e acompanhamento em uma jornada mais clara.</p>
+          <div class="hero-buttons"><a class="button primary" href="https://chave-direta.diasingrid56.chatgpt.site">Conhecer o sistema completo →</a><a class="button secondary" href="#solucao">Entender o projeto</a></div>
+          <div class="proof"><span>Busca em todo o Brasil</span><span>Conta protegida</span><span>Dados persistentes</span></div>
+        </div>
+        <div class="visual" aria-label="Ilustração conceitual de uma porta e cartões da plataforma">
+          <div class="door"><i></i></div>
+          <div class="float one"><small>JORNADA COMPLETA</small><strong>Aluguel ou compra</strong><span>Da busca ao acompanhamento</span></div>
+          <div class="float two"><small>TRANSPARÊNCIA</small><strong>Propostas registradas</strong><span>Condições e garantias organizadas</span></div>
+          <span class="status">V2.0 • ONLINE</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="stats"><div class="wrap stats-grid"><div><strong>27</strong><span>estados disponíveis na busca</span></div><div><strong>10</strong><span>fotos por anúncio</span></div><div><strong>3</strong><span>formas de aquisição</span></div><div><strong>1</strong><span>jornada imobiliária integrada</span></div></div></div>
+
+    <section class="problem" id="solucao">
+      <div class="wrap">
+        <div class="section-head"><span>POR QUE O CHAVE DIRETA?</span><h2>Menos fragmentação. Mais clareza para decidir.</h2><p>O projeto nasceu para organizar etapas que normalmente ficam espalhadas entre anúncios, mensagens, planilhas e documentos.</p></div>
+        <div class="problem-grid">
+          <article class="problem-card before"><span>JORNADA FRAGMENTADA</span><h3>O problema observado</h3><ul><li>Informações espalhadas em vários canais</li><li>Condições de garantia pouco transparentes</li><li>Dificuldade para acompanhar propostas e visitas</li><li>Busca, negociação e histórico sem integração</li></ul></article>
+          <article class="problem-card after"><span>SOLUÇÃO INTEGRADA</span><h3>A proposta Chave Direta</h3><ul><li>Busca nacional por localização e preço</li><li>Compra, aluguel e garantias no mesmo ambiente</li><li>Painéis privados para usuários e proprietários</li><li>Moderação e histórico das decisões importantes</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="recursos">
+      <div class="wrap">
+        <div class="section-head"><span>RECURSOS DA PLATAFORMA</span><h2>Uma experiência que vai além do anúncio.</h2><p>A versão funcional combina interface pública, áreas autenticadas e serviços persistentes de backend.</p></div>
+        <div class="feature-grid">
+          <article class="feature"><div class="icon">⌕</div><span>DESCOBERTA</span><h3>Busca nacional</h3><p>Filtros por estado, município, faixa de preço e modalidade, com localização opcional mediante consentimento.</p></article>
+          <article class="feature"><div class="icon">⌂</div><span>ANÚNCIOS</span><h3>Cadastro completo</h3><p>Casas, apartamentos, terrenos, imóveis comerciais e rurais, com galeria de até dez fotos.</p></article>
+          <article class="feature"><div class="icon">◇</div><span>NEGOCIAÇÃO</span><h3>Propostas registradas</h3><p>Compra à vista, financiamento ou carta de consórcio, com garantias e valores organizados.</p></article>
+          <article class="feature"><div class="icon">▦</div><span>PLANEJAMENTO</span><h3>Simulador de compra</h3><p>Cenários editáveis para pagamento à vista, financiamento SAC/Price e consórcio contemplado.</p></article>
+          <article class="feature"><div class="icon">◷</div><span>AGENDA</span><h3>Visitas vinculadas</h3><p>Disponibilidade do proprietário, solicitação do interessado, confirmação e histórico por imóvel.</p></article>
+          <article class="feature"><div class="icon">✓</div><span>CONFIANÇA</span><h3>Moderação administrativa</h3><p>Revisão prévia de novos anúncios, alertas de duplicidade e registro auditável das decisões.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="journey">
+      <div class="wrap">
+        <div class="section-head"><span>JORNADA DO USUÁRIO</span><h2>Da pesquisa ao próximo passo.</h2><p>Cada etapa tem uma função clara, preservando a vitrine pública e protegendo as ações sensíveis.</p></div>
+        <div class="steps"><article class="step"><b>01</b><h3>Encontrar</h3><p>Pesquisar imóveis e comparar condições.</p></article><article class="step"><b>02</b><h3>Conhecer</h3><p>Abrir fotos, detalhes e localização aproximada.</p></article><article class="step"><b>03</b><h3>Negociar</h3><p>Agendar visita ou enviar proposta.</p></article><article class="step"><b>04</b><h3>Acompanhar</h3><p>Consultar status no painel privado.</p></article><article class="step"><b>05</b><h3>Conquistar</h3><p>Organizar condições para contrato e mudança.</p></article></div>
+      </div>
+    </section>
+
+    <section class="showcase">
+      <div class="wrap showcase-grid">
+        <div class="photo-stack"><img class="photo a" src="assets/property-1.png" alt="Sala de um imóvel anunciado"><img class="photo b" src="assets/property-2.png" alt="Ambiente de outro imóvel anunciado"><span class="photo-label">Carrossel com múltiplas fotos</span></div>
+        <div class="showcase-copy"><span class="eyebrow">PARA QUEM ANUNCIA E PARA QUEM BUSCA</span><h2>Dois lados da negociação, uma só plataforma.</h2><p>O proprietário organiza seus anúncios, visitas e propostas. O interessado pesquisa, simula, agenda e acompanha sem perder o histórico.</p><div class="checklist"><div><i>✓</i><p><strong>Proprietário</strong><span>Cadastro, galeria, agenda e gestão do anúncio.</span></p></div><div><i>✓</i><p><strong>Interessado</strong><span>Busca, favoritos, visitas, simulação e propostas.</span></p></div><div><i>✓</i><p><strong>Administração</strong><span>Moderação, indicadores e rastreabilidade.</span></p></div></div><a class="button primary" href="https://chave-direta.diasingrid56.chatgpt.site">Experimentar a plataforma</a></div>
+      </div>
+    </section>
+
+    <section class="architecture" id="arquitetura">
+      <div class="wrap">
+        <div class="section-head"><span>ARQUITETURA TÉCNICA</span><h2>Interface moderna com backend real.</h2><p>O GitHub Pages apresenta o projeto; a aplicação completa permanece na infraestrutura que suporta autenticação, APIs e dados.</p></div>
+        <div class="arch-grid"><article><small>CAMADA 1</small><h3>React + Next.js</h3><p>Interface responsiva, componentes interativos e experiência para computador e celular.</p></article><article><small>CAMADA 2</small><h3>Cloudflare Workers</h3><p>APIs, regras de negócio, validações e autorização executadas no servidor.</p></article><article><small>CAMADA 3</small><h3>D1 + Drizzle ORM</h3><p>Perfis, imóveis, propostas, visitas, preferências e auditoria persistentes.</p></article><article><small>CAMADA 4</small><h3>R2 Storage</h3><p>Armazenamento das imagens dos imóveis com entrega otimizada.</p></article></div>
+        <div class="security"><i>⌾</i><div><h3>Segurança por camadas</h3><p>Ações sensíveis exigem identidade; endereços completos ficam protegidos; rotas administrativas repetem a autorização no servidor; e novos anúncios dependem de moderação antes de aparecer na vitrine.</p></div></div>
+      </div>
+    </section>
+
+    <section class="roadmap" id="roadmap">
+      <div class="wrap">
+        <div class="section-head"><span>EVOLUÇÃO DO PROJETO</span><h2>Roadmap de confiança e operação.</h2><p>As melhorias são desenvolvidas em etapas estáveis, testadas e publicadas separadamente.</p></div>
+        <div class="roadmap-grid">
+          <article class="roadmap-item done"><b>01</b><div><strong>Painel administrativo</strong><span>Moderação, visão operacional e auditoria.</span></div><em>CONCLUÍDO</em></article>
+          <article class="roadmap-item now"><b>02</b><div><strong>Verificação de anunciante e imóvel</strong><span>Selos e análise documental privada.</span></div><em>PRÓXIMO</em></article>
+          <article class="roadmap-item"><b>03</b><div><strong>Sistema de denúncias</strong><span>Envio, acompanhamento e tratamento.</span></div><em>PLANEJADO</em></article>
+          <article class="roadmap-item"><b>04</b><div><strong>Segurança ampliada</strong><span>Permissões, limites e registros adicionais.</span></div><em>PLANEJADO</em></article>
+          <article class="roadmap-item"><b>05</b><div><strong>Notificações</strong><span>Atualizações de propostas, visitas e documentos.</span></div><em>PLANEJADO</em></article>
+          <article class="roadmap-item"><b>06</b><div><strong>Favoritos e comparação</strong><span>Decisão lado a lado entre imóveis.</span></div><em>PLANEJADO</em></article>
+          <article class="roadmap-item"><b>07</b><div><strong>Mapa e raio</strong><span>Descoberta por distância e pontos próximos.</span></div><em>PLANEJADO</em></article>
+          <article class="roadmap-item"><b>08</b><div><strong>Chat protegido</strong><span>Comunicação vinculada ao anúncio.</span></div><em>PLANEJADO</em></article>
+          <article class="roadmap-item"><b>09</b><div><strong>Agenda inteligente</strong><span>Lembretes, confirmações e avaliação da visita.</span></div><em>PLANEJADO</em></article>
+          <article class="roadmap-item"><b>10</b><div><strong>Indicador de preço</strong><span>Comparação com imóveis semelhantes.</span></div><em>PLANEJADO</em></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta"><div class="wrap cta-box"><span class="eyebrow" style="color:#c9f05d">SISTEMA WEB FUNCIONAL</span><h2>Veja o Chave Direta em ação.</h2><p>Acesse a aplicação completa para explorar imóveis, simular uma compra e conhecer os painéis. As operações financeiras e jurídicas permanecem demonstrativas nesta versão acadêmica.</p><a class="button" href="https://chave-direta.diasingrid56.chatgpt.site">Abrir o sistema completo →</a><a class="button secondary" href="https://github.com/SantosIngridIA/chave-direta">Explorar o código</a></div></section>
+  </main>
+
+  <footer><div class="wrap footer-grid"><div class="brand"><span class="mark">CD</span><span>Chave <strong>Direta</strong></span></div><p>Projeto acadêmico desenvolvido por Ingrid Dias Santos. Esta apresentação é hospedada no GitHub Pages; o sistema funcional utiliza infraestrutura própria para backend e dados.</p><div class="footer-links"><a href="https://github.com/SantosIngridIA/chave-direta">GitHub</a><a href="https://chave-direta.diasingrid56.chatgpt.site">Sistema</a></div></div></footer>
+</body>
+</html>

@@ -1,0 +1,48 @@
+name: Publicar apresentação no GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "docs-site/**"
+      - "public/property-*.png"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v7
+
+      - name: Preparar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Montar apresentação estática
+        run: |
+          mkdir -p _site/assets
+          cp docs-site/index.html _site/index.html
+          cp public/property-1.png public/property-2.png public/property-3.png _site/assets/
+          touch _site/.nojekyll
+
+      - name: Enviar artefato
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Publicar
+        id: deployment
+        uses: actions/deploy-pages@v5
