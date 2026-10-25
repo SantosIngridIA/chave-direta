@@ -135,7 +135,7 @@ npm run lint
 npm test
 ```
 
-O ambiente de produção utiliza uma vinculação D1 chamada `DB`. A configuração de hospedagem está em `.openai/hosting.json`.
+O ambiente de produção utiliza uma vinculação D1 chamada `DB`. A configuração de hospedagem está em `config/runtime.json`.
 
 ## Estrutura principal
 

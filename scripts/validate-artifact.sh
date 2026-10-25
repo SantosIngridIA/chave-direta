@@ -8,14 +8,14 @@ if [[ "${SITES_ENV_READY:-}" != "1" ]]; then
 fi
 
 worker="${SITES_PROJECT_ROOT}/dist/server/index.js"
-hosting="${SITES_PROJECT_ROOT}/dist/.openai/hosting.json"
+hosting="${SITES_PROJECT_ROOT}/dist/runtime/hosting.json"
 
 [[ -f "${worker}" ]] || {
   echo "Missing Sites Worker entry: dist/server/index.js" >&2
   exit 66
 }
 [[ -f "${hosting}" ]] || {
-  echo "Missing packaged Sites manifest: dist/.openai/hosting.json" >&2
+  echo "Missing packaged Sites manifest: dist/runtime/hosting.json" >&2
   exit 66
 }
 
