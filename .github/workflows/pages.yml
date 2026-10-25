@@ -28,8 +28,10 @@ jobs:
       - name: Baixar repositório
         uses: actions/checkout@v7
 
-      - name: Preparar GitHub Pages
+      - name: Ativar e preparar GitHub Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       - name: Montar apresentação estática
         run: |
